@@ -118,6 +118,14 @@
   }
   .field input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(46,84,232,.12);}
   .field input::placeholder{color:#9AA3B2;}
+  .pwwrap{position:relative;}
+  .pwwrap input{padding-right:5em;}
+  .pwtoggle{
+    position:absolute;top:50%;right:.45em;transform:translateY(-50%);
+    background:none;color:var(--slate);font-size:.82rem;font-weight:600;
+    padding:.5em .6em;border-radius:8px;line-height:1;
+  }
+  .pwtoggle:active{color:var(--blue);background:var(--mist-2);}
 
   .errmsg{
     display:none;background:#FEF2F2;color:#B42318;border:1px solid #FADBD8;
@@ -231,7 +239,10 @@
       </div>
       <div class="field">
         <label for="suPass">Senha</label>
-        <input id="suPass" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" />
+        <div class="pwwrap">
+          <input id="suPass" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" />
+          <button type="button" class="pwtoggle" data-pw="suPass">Mostrar</button>
+        </div>
       </div>
       <div class="formfoot">
         <button class="btn btn--primary" id="suBtn">Criar conta grátis</button>
@@ -256,7 +267,10 @@
       </div>
       <div class="field">
         <label for="liPass">Senha</label>
-        <input id="liPass" type="password" autocomplete="current-password" placeholder="Sua senha" />
+        <div class="pwwrap">
+          <input id="liPass" type="password" autocomplete="current-password" placeholder="Sua senha" />
+          <button type="button" class="pwtoggle" data-pw="liPass">Mostrar</button>
+        </div>
       </div>
       <div class="formfoot">
         <button class="btn btn--primary" id="liBtn">Entrar</button>
@@ -402,6 +416,16 @@
     });
 
     document.addEventListener("click", function(e){
+      var pt = e.target.closest(".pwtoggle");
+      if(pt){
+        var inp = $(pt.getAttribute("data-pw"));
+        if(inp){
+          var hidden = inp.type === "password";
+          inp.type = hidden ? "text" : "password";
+          pt.textContent = hidden ? "Ocultar" : "Mostrar";
+        }
+        return;
+      }
       var b = e.target.closest("[data-back]");
       if(b){ show(b.getAttribute("data-back")); return; }
       var g = e.target.closest("[data-go]");
