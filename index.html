@@ -89,6 +89,89 @@
   .loginlink{display:block;margin:14px auto 0;background:none;color:var(--slate);font-size:.92rem;font-weight:500;text-decoration:underline;text-underline-offset:3px;}
   .loginlink:active{color:var(--ink);}
 
+  /* ============================================================
+     FASE 1 — cadastro, login, onboarding e home
+     ============================================================ */
+  .hidden{display:none !important;}
+
+  .backlink{
+    position:relative;z-index:1;align-self:flex-start;background:none;color:var(--slate);
+    font-size:.95rem;font-weight:500;padding:4px 2px;margin-bottom:4px;
+  }
+  .backlink:active{color:var(--ink);}
+
+  /* form screens */
+  .formwrap{flex:1;display:flex;flex-direction:column;position:relative;z-index:1;}
+  .formhead{text-align:center;margin:4px 0 22px;}
+  .formhead .avatar{width:62px;height:62px;margin:0 auto 14px;animation:pop .5s var(--ease) both;}
+  .formhead h2{font-size:clamp(1.5rem,6vw,1.85rem);font-weight:700;letter-spacing:-.03em;line-height:1.15;}
+  .formhead h2 em{font-style:normal;color:var(--navy);}
+  .formhead p{margin-top:8px;color:var(--slate);font-size:.98rem;}
+
+  .field{margin-bottom:13px;}
+  .field label{display:block;font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:6px;}
+  .field input{
+    width:100%;font-family:inherit;font-size:1rem;color:var(--ink);
+    padding:.92em 1em;border-radius:12px;border:1px solid var(--line-strong);
+    background:var(--paper);transition:border-color .2s var(--ease),box-shadow .2s var(--ease);
+    -webkit-appearance:none;appearance:none;
+  }
+  .field input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(46,84,232,.12);}
+  .field input::placeholder{color:#9AA3B2;}
+
+  .errmsg{
+    display:none;background:#FEF2F2;color:#B42318;border:1px solid #FADBD8;
+    font-size:.88rem;font-weight:500;padding:.7em 1em;border-radius:11px;margin-bottom:14px;line-height:1.4;
+  }
+  .errmsg.show{display:block;}
+
+  .formfoot{margin-top:auto;padding-top:18px;}
+  .altlink{display:block;text-align:center;margin-top:16px;color:var(--slate);font-size:.92rem;font-weight:500;}
+  .altlink b{color:var(--blue);font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer;}
+
+  /* button loading */
+  .btn[disabled]{opacity:.75;cursor:default;}
+  .spinner{
+    width:17px;height:17px;border-radius:50%;border:2px solid rgba(255,255,255,.45);
+    border-top-color:#fff;animation:spin .7s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* onboarding */
+  .q{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;}
+  .q .step{font-size:.76rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+  .q h2{font-size:clamp(1.5rem,6vw,1.95rem);font-weight:700;letter-spacing:-.03em;line-height:1.18;}
+  .q h2 em{font-style:normal;color:var(--navy);}
+  .q .qsub{color:var(--slate);font-size:1rem;margin:8px 0 22px;}
+  .opts{display:flex;flex-direction:column;gap:10px;}
+  .opt{
+    display:flex;align-items:center;gap:13px;width:100%;text-align:left;
+    padding:1.05em 1.1em;border-radius:14px;border:1.5px solid var(--line-strong);
+    background:var(--paper);font-size:1.02rem;font-weight:600;color:var(--ink);letter-spacing:-.01em;
+    transition:border-color .18s var(--ease),background .18s var(--ease),transform .18s var(--ease),box-shadow .18s var(--ease);
+  }
+  .opt .emoji{font-size:1.3rem;line-height:1;flex:none;}
+  .opt:active{transform:scale(.99);}
+  .opt.selected{border-color:var(--blue);background:rgba(46,84,232,.06);box-shadow:0 0 0 3px rgba(46,84,232,.1);}
+
+  /* home */
+  .greeting{position:relative;z-index:1;margin:10px 0 2px;}
+  .greeting h2{font-size:clamp(1.6rem,6.5vw,2.1rem);font-weight:700;letter-spacing:-.03em;line-height:1.15;}
+  .greeting h2 em{font-style:normal;color:var(--navy);}
+  .greeting p{margin-top:8px;color:var(--slate);font-size:1.02rem;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 22px;position:relative;z-index:1;}
+  .chip{background:var(--mist);color:var(--navy);font-size:.84rem;font-weight:600;padding:.5em 1em;border-radius:999px;}
+  .homecard{
+    position:relative;z-index:1;background:var(--mist-2);border:1px solid var(--line);
+    border-radius:18px;padding:24px 20px;text-align:center;
+  }
+  .homecard .ava{width:54px;height:54px;border-radius:50%;background:var(--logo) center/cover no-repeat;margin:0 auto 12px;box-shadow:0 10px 26px -12px rgba(19,33,63,.5);}
+  .homecard h3{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;}
+  .homecard p{color:var(--slate);font-size:.96rem;line-height:1.5;max-width:34ch;margin-inline:auto;}
+  .homecard .soon{display:inline-block;margin-top:14px;background:var(--navy);color:#fff;font-size:.76rem;font-weight:700;padding:.45em 1.1em;border-radius:999px;letter-spacing:.02em;}
+  .signout{position:relative;z-index:1;margin:auto auto 0;padding-top:20px;background:none;color:var(--slate);font-size:.9rem;font-weight:500;text-decoration:underline;text-underline-offset:3px;display:block;}
+  .signout:active{color:var(--ink);}
+
   /* toast */
   .toast{
     position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 22px);transform:translateX(-50%) translateY(20px);
@@ -106,7 +189,8 @@
 </style>
 </head>
 <body>
-  <main class="screen">
+  <!-- ===== WELCOME ===== -->
+  <main class="screen" id="s-welcome">
     <div class="topbar">
       <span class="mk" aria-hidden="true"></span>
       <span class="wm">English <span>for Success</span></span>
@@ -120,35 +204,309 @@
     </section>
 
     <div class="actions">
-      <button class="btn btn--primary" id="freeStart">Comece agora grátis</button>
-      <button class="btn btn--ghost" id="proStart">Assinar o plano Pro</button>
+      <button class="btn btn--primary" id="goSignup">Comece agora grátis</button>
+      <button class="btn btn--ghost" id="goPro">Assinar o plano Pro</button>
       <p class="pricing">Pro R$49,90/mês · Cancele quando quiser</p>
-      <button class="loginlink" id="login">Já tem uma conta? Entrar</button>
+      <button class="loginlink" id="goLogin">Já tem uma conta? Entrar</button>
     </div>
+  </main>
+
+  <!-- ===== SIGNUP ===== -->
+  <main class="screen hidden" id="s-signup">
+    <button class="backlink" data-back="welcome">← Voltar</button>
+    <div class="formwrap">
+      <div class="formhead">
+        <div class="avatar" aria-hidden="true"></div>
+        <h2>Criar sua <em>conta grátis</em></h2>
+        <p>Leva 30 segundos. Bora começar! 🚀</p>
+      </div>
+      <div class="errmsg" id="suErr"></div>
+      <div class="field">
+        <label for="suName">Seu nome</label>
+        <input id="suName" type="text" autocomplete="given-name" placeholder="Como posso te chamar?" />
+      </div>
+      <div class="field">
+        <label for="suEmail">E-mail</label>
+        <input id="suEmail" type="email" autocomplete="email" inputmode="email" placeholder="voce@email.com" />
+      </div>
+      <div class="field">
+        <label for="suPass">Senha</label>
+        <input id="suPass" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" />
+      </div>
+      <div class="formfoot">
+        <button class="btn btn--primary" id="suBtn">Criar conta grátis</button>
+        <span class="altlink">Já tem conta? <b data-go="login">Entrar</b></span>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== LOGIN ===== -->
+  <main class="screen hidden" id="s-login">
+    <button class="backlink" data-back="welcome">← Voltar</button>
+    <div class="formwrap">
+      <div class="formhead">
+        <div class="avatar" aria-hidden="true"></div>
+        <h2>Bem-vindo de <em>volta</em> 👋</h2>
+        <p>Que bom te ver de novo!</p>
+      </div>
+      <div class="errmsg" id="liErr"></div>
+      <div class="field">
+        <label for="liEmail">E-mail</label>
+        <input id="liEmail" type="email" autocomplete="email" inputmode="email" placeholder="voce@email.com" />
+      </div>
+      <div class="field">
+        <label for="liPass">Senha</label>
+        <input id="liPass" type="password" autocomplete="current-password" placeholder="Sua senha" />
+      </div>
+      <div class="formfoot">
+        <button class="btn btn--primary" id="liBtn">Entrar</button>
+        <span class="altlink">Ainda não tem conta? <b data-go="signup">Criar grátis</b></span>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== CHECK EMAIL ===== -->
+  <main class="screen hidden" id="s-checkemail">
+    <section class="hero">
+      <div class="avatar" aria-hidden="true"></div>
+      <h1>Confirma seu <em>e-mail</em> 📩</h1>
+      <p class="sub">Enviei um link de confirmação para <b id="ceEmail"></b>. Abre lá, confirma, e volta pra entrar. Te espero! 💪</p>
+    </section>
+    <div class="actions">
+      <button class="btn btn--primary" data-go="login">Já confirmei — Entrar</button>
+    </div>
+  </main>
+
+  <!-- ===== ONBOARDING · objetivo ===== -->
+  <main class="screen hidden" id="s-obj">
+    <div class="q">
+      <span class="step">Passo 1 de 2</span>
+      <h2>Qual seu maior <em>objetivo</em> com o inglês?</h2>
+      <p class="qsub">Vou montar sua trilha em cima disso.</p>
+      <div class="opts" id="objOpts">
+        <button class="opt" data-val="career"><span class="emoji">🚀</span> Crescer na carreira</button>
+        <button class="opt" data-val="business"><span class="emoji">💼</span> Inglês para negócios</button>
+        <button class="opt" data-val="ielts"><span class="emoji">🎓</span> Passar no IELTS / provas</button>
+        <button class="opt" data-val="abroad"><span class="emoji">✈️</span> Morar fora (UK / EUA)</button>
+        <button class="opt" data-val="daily"><span class="emoji">💬</span> Conversar no dia a dia</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== ONBOARDING · nível ===== -->
+  <main class="screen hidden" id="s-level">
+    <button class="backlink" data-back="obj">← Voltar</button>
+    <div class="q">
+      <span class="step">Passo 2 de 2</span>
+      <h2>E como tá seu <em>inglês hoje</em>?</h2>
+      <p class="qsub">Sem vergonha — é daqui que a gente parte. 😉</p>
+      <div class="opts" id="lvlOpts">
+        <button class="opt" data-val="beginner"><span class="emoji">🌱</span> Iniciante — sei pouco</button>
+        <button class="opt" data-val="intermediate"><span class="emoji">🌿</span> Intermediário — me viro</button>
+        <button class="opt" data-val="advanced"><span class="emoji">🌳</span> Avançado — quero fluência total</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== HOME ===== -->
+  <main class="screen hidden" id="s-home">
+    <div class="topbar">
+      <span class="mk" aria-hidden="true"></span>
+      <span class="wm">English <span>for Success</span></span>
+    </div>
+    <div class="greeting">
+      <h2 id="homeHi">Tudo pronto! 👋</h2>
+      <p id="homeSub">Seu plano tá pronto.</p>
+    </div>
+    <div class="chips" id="homeChips"></div>
+    <div class="homecard">
+      <div class="ava" aria-hidden="true"></div>
+      <h3>Seu Mentor Delagassa</h3>
+      <p>É aqui que a gente vai conversar, treinar e destravar seu inglês — toda hora que você quiser.</p>
+      <span class="soon">Chega na próxima fase 🚀</span>
+    </div>
+    <button class="signout" id="signOut">Sair da conta</button>
   </main>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
   (function(){
     "use strict";
-    var toast = document.getElementById("toast");
-    var t;
-    function showToast(msg){
-      toast.textContent = msg;
-      toast.classList.add("show");
-      clearTimeout(t);
-      t = setTimeout(function(){ toast.classList.remove("show"); }, 2600);
+
+    /* ---------- Supabase ---------- */
+    var SUPABASE_URL  = "https://mplmqnmxduuocaxmslgr.supabase.co";
+    var SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1wbG1xbm14ZHV1b2NheG1zbGdyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2MjI1NjEsImV4cCI6MjA5ODE5ODU2MX0.Ezkzjg-7pLpGXnCgTaVJyXoioMStQqfPeoeUCF-w8Xo";
+    var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+    /* ---------- helpers ---------- */
+    var $ = function(id){ return document.getElementById(id); };
+    var screens = document.querySelectorAll(".screen");
+    function show(id){
+      Array.prototype.forEach.call(screens, function(s){ s.classList.add("hidden"); });
+      var el = $("s-" + id);
+      if(el){ el.classList.remove("hidden"); window.scrollTo(0,0); }
     }
-    document.getElementById("freeStart").addEventListener("click", function(){
-      showToast("Cadastro grátis chega na Fase 1 🚀");
+
+    var toast = $("toast"), tt;
+    function showToast(msg){
+      toast.textContent = msg; toast.classList.add("show");
+      clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove("show"); }, 2600);
+    }
+
+    function setLoading(btn, on){
+      if(on){ btn.dataset.label = btn.textContent; btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>'; }
+      else { btn.disabled = false; if(btn.dataset.label){ btn.textContent = btn.dataset.label; } }
+    }
+    function showErr(el, msg){ el.textContent = msg; el.classList.add("show"); }
+    function clearErr(el){ el.textContent = ""; el.classList.remove("show"); }
+
+    function friendly(msg){
+      msg = (msg || "").toLowerCase();
+      if(msg.indexOf("invalid login") > -1) return "E-mail ou senha incorretos.";
+      if(msg.indexOf("already registered") > -1 || msg.indexOf("already been registered") > -1) return "Esse e-mail já tem conta. Tenta entrar.";
+      if(msg.indexOf("at least 6") > -1 || msg.indexOf("password should be") > -1) return "A senha precisa de pelo menos 6 caracteres.";
+      if(msg.indexOf("invalid format") > -1 || msg.indexOf("unable to validate email") > -1) return "E-mail inválido. Confere e tenta de novo.";
+      if(msg.indexOf("email not confirmed") > -1) return "Confirma seu e-mail antes de entrar — olha sua caixa de entrada. 📩";
+      if(msg.indexOf("rate limit") > -1 || msg.indexOf("too many") > -1) return "Muitas tentativas. Espera um minutinho e tenta de novo.";
+      if(msg.indexOf("network") > -1 || msg.indexOf("fetch") > -1 || msg.indexOf("failed to") > -1) return "Sem conexão agora. Tenta de novo.";
+      return "Algo deu errado. Tenta de novo.";
+    }
+
+    function firstName(n){ return (n || "").trim().split(/\s+/)[0] || ""; }
+    function escapeHtml(s){
+      return (s || "").replace(/[&<>"']/g, function(m){
+        return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m];
+      });
+    }
+
+    var OBJ_LABEL = { career:"🚀 Carreira", business:"💼 Negócios", ielts:"🎓 IELTS / provas", abroad:"✈️ Morar fora", daily:"💬 Dia a dia" };
+    var LVL_LABEL = { beginner:"🌱 Iniciante", intermediate:"🌿 Intermediário", advanced:"🌳 Avançado" };
+    var OBJ_LINE  = {
+      career:"Bora destravar o inglês que vai te promover.",
+      business:"Inglês de negócios, do jeito que o mercado exige.",
+      ielts:"Rumo à nota que abre as portas lá fora.",
+      abroad:"Preparando seu inglês pra vida no exterior.",
+      daily:"Conversa real, do dia a dia, sem travar."
+    };
+
+    var pending = { objective:null, level:null };
+
+    /* ---------- navigation ---------- */
+    $("goSignup").addEventListener("click", function(){ show("signup"); });
+    $("goLogin").addEventListener("click", function(){ show("login"); });
+    $("goPro").addEventListener("click", function(){
+      showToast("Primeiro crie sua conta — o Pro você ativa lá dentro 🚀");
+      show("signup");
     });
-    document.getElementById("proStart").addEventListener("click", function(){
-      showToast("Assinatura Pro chega na Fase 4 🚀");
+
+    document.addEventListener("click", function(e){
+      var b = e.target.closest("[data-back]");
+      if(b){ show(b.getAttribute("data-back")); return; }
+      var g = e.target.closest("[data-go]");
+      if(g){ show(g.getAttribute("data-go")); return; }
     });
-    document.getElementById("login").addEventListener("click", function(){
-      showToast("Login chega na Fase 1 🚀");
+
+    /* ---------- signup ---------- */
+    $("suBtn").addEventListener("click", function(){
+      var self = this;
+      var name  = $("suName").value.trim();
+      var email = $("suEmail").value.trim();
+      var pass  = $("suPass").value;
+      clearErr($("suErr"));
+      if(!name){  showErr($("suErr"), "Como posso te chamar? Preenche seu nome."); return; }
+      if(!email){ showErr($("suErr"), "Coloca seu e-mail pra criar a conta."); return; }
+      if(pass.length < 6){ showErr($("suErr"), "A senha precisa de pelo menos 6 caracteres."); return; }
+      setLoading(self, true);
+      sb.auth.signUp({ email:email, password:pass, options:{ data:{ full_name:name } } })
+        .then(function(res){
+          setLoading(self, false);
+          if(res.error){ showErr($("suErr"), friendly(res.error.message)); return; }
+          if(res.data.session){ show("obj"); }          // confirmação desligada → onboarding
+          else { $("ceEmail").textContent = email; show("checkemail"); }  // confirmação ligada
+        })
+        .catch(function(){ setLoading(self, false); showErr($("suErr"), "Sem conexão agora. Tenta de novo."); });
     });
+
+    /* ---------- login ---------- */
+    $("liBtn").addEventListener("click", function(){
+      var self = this;
+      var email = $("liEmail").value.trim();
+      var pass  = $("liPass").value;
+      clearErr($("liErr"));
+      if(!email || !pass){ showErr($("liErr"), "Preenche e-mail e senha pra entrar."); return; }
+      setLoading(self, true);
+      sb.auth.signInWithPassword({ email:email, password:pass })
+        .then(function(res){
+          setLoading(self, false);
+          if(res.error){ showErr($("liErr"), friendly(res.error.message)); return; }
+          routeAfterAuth(res.data.user);
+        })
+        .catch(function(){ setLoading(self, false); showErr($("liErr"), "Sem conexão agora. Tenta de novo."); });
+    });
+
+    /* ---------- onboarding: objetivo ---------- */
+    $("objOpts").addEventListener("click", function(e){
+      var opt = e.target.closest(".opt"); if(!opt) return;
+      pending.objective = opt.getAttribute("data-val");
+      Array.prototype.forEach.call(this.children, function(c){ c.classList.remove("selected"); });
+      opt.classList.add("selected");
+      setTimeout(function(){ show("level"); }, 180);
+    });
+
+    /* ---------- onboarding: nível ---------- */
+    $("lvlOpts").addEventListener("click", function(e){
+      var opt = e.target.closest(".opt"); if(!opt) return;
+      pending.level = opt.getAttribute("data-val");
+      Array.prototype.forEach.call(this.children, function(c){ c.classList.remove("selected"); });
+      opt.classList.add("selected");
+      sb.auth.updateUser({ data:{ objective:pending.objective, level:pending.level } })
+        .then(function(res){
+          if(res.error){ showToast("Não consegui salvar agora — segue mesmo assim."); }
+          sb.auth.getUser().then(function(u){ enterHome((u.data && u.data.user) || res.data.user); });
+        })
+        .catch(function(){ showToast("Sem conexão — seu plano não salvou."); });
+    });
+
+    /* ---------- routing ---------- */
+    function routeAfterAuth(user){
+      var md = (user && user.user_metadata) || {};
+      if(md.objective && md.level){ enterHome(user); }
+      else { show("obj"); }
+    }
+
+    function enterHome(user){
+      var md = (user && user.user_metadata) || {};
+      var nm = firstName(md.full_name);
+      $("homeHi").innerHTML  = nm ? ("E aí, <em>" + escapeHtml(nm) + "</em>! 👋") : "Tudo pronto! 👋";
+      $("homeSub").textContent = (md.objective && OBJ_LINE[md.objective]) ? OBJ_LINE[md.objective] : "Seu plano tá pronto.";
+      var chips = [];
+      if(md.objective && OBJ_LABEL[md.objective]) chips.push(OBJ_LABEL[md.objective]);
+      if(md.level && LVL_LABEL[md.level]) chips.push(LVL_LABEL[md.level]);
+      $("homeChips").innerHTML = chips.map(function(c){ return '<span class="chip">' + c + '</span>'; }).join("");
+      show("home");
+    }
+
+    /* ---------- sign out ---------- */
+    $("signOut").addEventListener("click", function(){
+      sb.auth.signOut().then(function(){
+        pending = { objective:null, level:null };
+        ["suName","suEmail","suPass","liEmail","liPass"].forEach(function(id){ $(id).value = ""; });
+        show("welcome");
+        showToast("Você saiu. Até logo! 👋");
+      });
+    });
+
+    /* ---------- restore session on load ---------- */
+    sb.auth.getSession()
+      .then(function(res){
+        var session = res.data.session;
+        if(session && session.user){ routeAfterAuth(session.user); }
+        else { show("welcome"); }
+      })
+      .catch(function(){ show("welcome"); });
+
   })();
   </script>
 </body>
