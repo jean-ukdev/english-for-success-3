@@ -180,6 +180,71 @@
   .signout{position:relative;z-index:1;margin:auto auto 0;padding-top:20px;background:none;color:var(--slate);font-size:.9rem;font-weight:500;text-decoration:underline;text-underline-offset:3px;display:block;}
   .signout:active{color:var(--ink);}
 
+  /* home: card do mentor vira botão */
+  .homecard{cursor:pointer;width:100%;transition:transform .15s var(--ease),box-shadow .15s var(--ease);}
+  .homecard:active{transform:scale(.99);}
+  .homecard .cta{display:inline-block;margin-top:14px;background:var(--blue);color:#fff;font-size:.85rem;font-weight:700;padding:.6em 1.35em;border-radius:999px;letter-spacing:.01em;box-shadow:0 10px 22px -10px rgba(46,84,232,.7);}
+
+  /* ============================================================
+     FASE 2 — chat do Delagassa Mentor
+     ============================================================ */
+  .chat-screen{padding:0;overflow:hidden;background:var(--paper);}
+  .chat-screen::before{display:none;}
+
+  .chat-head{
+    flex:none;display:flex;align-items:center;gap:11px;
+    padding:calc(env(safe-area-inset-top) + 12px) 14px 12px;
+    background:var(--paper);border-bottom:1px solid var(--line);position:relative;z-index:2;
+  }
+  .chat-back{font-size:1.6rem;color:var(--ink);line-height:1;padding:2px 8px;margin-left:-4px;}
+  .chat-back:active{opacity:.5;}
+  .chat-hava{width:38px;height:38px;border-radius:50%;background:var(--logo) center/cover no-repeat;flex:none;box-shadow:0 4px 12px -4px rgba(19,33,63,.45);}
+  .chat-id{display:flex;flex-direction:column;line-height:1.25;min-width:0;}
+  .chat-id strong{font-size:.98rem;font-weight:700;letter-spacing:-.01em;}
+  .chat-id span{font-size:.78rem;color:var(--slate);display:flex;align-items:center;gap:5px;}
+  .chat-id .live{width:7px;height:7px;border-radius:50%;background:#16A34A;display:inline-block;flex:none;}
+
+  .chat-log{
+    flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:18px 14px 10px;display:flex;flex-direction:column;gap:11px;background:var(--mist-2);
+  }
+  .msg{
+    max-width:84%;padding:.68em .95em;border-radius:17px;font-size:.97rem;line-height:1.5;
+    word-wrap:break-word;overflow-wrap:anywhere;white-space:pre-wrap;animation:msgIn .25s var(--ease) both;
+  }
+  @keyframes msgIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  .msg.bot{align-self:flex-start;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-bottom-left-radius:5px;}
+  .msg.me{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:5px;}
+  .msg strong{font-weight:700;}
+  .msg.bot strong{color:var(--navy);}
+  .msg.err{align-self:center;background:#FEF2F2;color:#B42318;border:1px solid #FADBD8;font-size:.9rem;text-align:center;max-width:90%;}
+
+  .typing{align-self:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:17px;border-bottom-left-radius:5px;padding:.85em 1.05em;display:flex;gap:5px;}
+  .typing span{width:7px;height:7px;border-radius:50%;background:var(--slate);animation:blink 1.2s infinite both;}
+  .typing span:nth-child(2){animation-delay:.18s;}
+  .typing span:nth-child(3){animation-delay:.36s;}
+  @keyframes blink{0%,60%,100%{opacity:.25;transform:translateY(0);}30%{opacity:.9;transform:translateY(-3px);}}
+
+  .chat-input{
+    flex:none;display:flex;align-items:flex-end;gap:8px;
+    padding:10px 12px calc(env(safe-area-inset-bottom) + 10px);
+    background:var(--paper);border-top:1px solid var(--line);position:relative;z-index:2;
+  }
+  .chat-input textarea{
+    flex:1;font-family:inherit;font-size:1rem;color:var(--ink);line-height:1.4;
+    padding:.6em .9em;border-radius:20px;border:1px solid var(--line-strong);background:var(--mist-2);
+    resize:none;max-height:120px;-webkit-appearance:none;appearance:none;
+  }
+  .chat-input textarea:focus{outline:none;border-color:var(--blue);background:var(--paper);}
+  .chat-input textarea::placeholder{color:#9AA3B2;}
+  .chat-send{
+    flex:none;width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;
+    font-size:1.35rem;line-height:1;display:flex;align-items:center;justify-content:center;
+    transition:transform .15s var(--ease),opacity .15s;
+  }
+  .chat-send:active{transform:scale(.92);}
+  .chat-send[disabled]{opacity:.4;}
+
   /* toast */
   .toast{
     position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 22px);transform:translateX(-50%) translateY(20px);
@@ -333,13 +398,30 @@
       <p id="homeSub">Seu plano tá pronto.</p>
     </div>
     <div class="chips" id="homeChips"></div>
-    <div class="homecard">
+    <button class="homecard" id="openChat">
       <div class="ava" aria-hidden="true"></div>
       <h3>Seu Mentor Delagassa</h3>
       <p>É aqui que a gente vai conversar, treinar e destravar seu inglês — toda hora que você quiser.</p>
-      <span class="soon">Chega na próxima fase 🚀</span>
-    </div>
+      <span class="cta">Conversar agora →</span>
+    </button>
     <button class="signout" id="signOut">Sair da conta</button>
+  </main>
+
+  <!-- ===== CHAT (Delagassa Mentor) ===== -->
+  <main class="screen chat-screen hidden" id="s-chat">
+    <header class="chat-head">
+      <button class="chat-back" data-back="home" aria-label="Voltar">←</button>
+      <div class="chat-hava" aria-hidden="true"></div>
+      <div class="chat-id">
+        <strong>Delagassa</strong>
+        <span><span class="live" aria-hidden="true"></span> online · seu mentor</span>
+      </div>
+    </header>
+    <div class="chat-log" id="chatLog"></div>
+    <div class="chat-input">
+      <textarea id="chatField" rows="1" placeholder="Escreve em inglês ou português…" autocomplete="off"></textarea>
+      <button class="chat-send" id="chatSend" aria-label="Enviar">↑</button>
+    </div>
   </main>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -361,6 +443,9 @@
       Array.prototype.forEach.call(screens, function(s){ s.classList.add("hidden"); });
       var el = $("s-" + id);
       if(el){ el.classList.remove("hidden"); window.scrollTo(0,0); }
+      var chat = $("s-chat");
+      if(id === "chat"){ fitChat(); setTimeout(scrollChatBottom, 60); }
+      else if(chat){ chat.style.height = ""; }
     }
 
     var toast = $("toast"), tt;
@@ -406,6 +491,7 @@
     };
 
     var pending = { objective:null, level:null };
+    var currentProfile = { name:"", objective:"", level:"" };
 
     /* ---------- navigation ---------- */
     $("goSignup").addEventListener("click", function(){ show("signup"); });
@@ -502,6 +588,7 @@
 
     function enterHome(user){
       var md = (user && user.user_metadata) || {};
+      currentProfile = { name: firstName(md.full_name), objective: md.objective || "", level: md.level || "" };
       var nm = firstName(md.full_name);
       $("homeHi").innerHTML  = nm ? ("E aí, <em>" + escapeHtml(nm) + "</em>! 👋") : "Tudo pronto! 👋";
       $("homeSub").textContent = (md.objective && OBJ_LINE[md.objective]) ? OBJ_LINE[md.objective] : "Seu plano tá pronto.";
@@ -512,10 +599,124 @@
       show("home");
     }
 
+    /* ---------- chat: estado e helpers ---------- */
+    var chatHistory = [];
+    var chatStarted = false;
+    var chatBusy = false;
+
+    function scrollChatBottom(){
+      var log = $("chatLog");
+      if(log){ log.scrollTop = log.scrollHeight; }
+    }
+
+    function fitChat(){
+      var chat = $("s-chat");
+      if(!chat || chat.classList.contains("hidden")) return;
+      var vv = window.visualViewport;
+      chat.style.height = (vv ? vv.height : window.innerHeight) + "px";
+    }
+
+    if(window.visualViewport){
+      window.visualViewport.addEventListener("resize", function(){ fitChat(); scrollChatBottom(); });
+      window.visualViewport.addEventListener("scroll", fitChat);
+    }
+
+    function formatBot(text){
+      var safe = escapeHtml(text);
+      return safe.replace(/\*([^*\n]+)\*/g, "<strong>$1</strong>");
+    }
+
+    function addBubble(cls, html){
+      var log = $("chatLog");
+      var d = document.createElement("div");
+      d.className = "msg " + cls;
+      d.innerHTML = html;
+      log.appendChild(d);
+      scrollChatBottom();
+      return d;
+    }
+
+    function showTyping(){
+      var d = document.createElement("div");
+      d.className = "typing"; d.id = "typingDots";
+      d.innerHTML = "<span></span><span></span><span></span>";
+      $("chatLog").appendChild(d);
+      scrollChatBottom();
+    }
+    function hideTyping(){ var t = $("typingDots"); if(t){ t.remove(); } }
+
+    function buildOpener(){
+      var nm = currentProfile.name ? (", " + currentProfile.name) : "";
+      var line = (currentProfile.objective && OBJ_LINE[currentProfile.objective]) ? OBJ_LINE[currentProfile.objective] : "Bora destravar seu inglês.";
+      return "E aí" + nm + "! 👋 Eu sou o Delagassa, seu mentor. " + line + " Me manda uma frase em inglês (ou em português) que a gente já começa — pode ser sobre o que você quiser treinar hoje. 🚀";
+    }
+
+    function autoGrow(el){
+      el.style.height = "auto";
+      el.style.height = Math.min(el.scrollHeight, 120) + "px";
+    }
+
+    /* ---------- chat: abrir ---------- */
+    $("openChat").addEventListener("click", function(){
+      show("chat");
+      if(!chatStarted){
+        chatStarted = true;
+        var opener = buildOpener();
+        chatHistory.push({ role:"assistant", content: opener });
+        addBubble("bot", formatBot(opener));
+      }
+      setTimeout(function(){ $("chatField").focus(); }, 120);
+    });
+
+    /* ---------- chat: enviar ---------- */
+    function sendMessage(){
+      if(chatBusy) return;
+      var field = $("chatField");
+      var text = field.value.trim();
+      if(!text) return;
+      field.value = ""; autoGrow(field);
+      chatHistory.push({ role:"user", content: text });
+      addBubble("me", escapeHtml(text));
+      chatBusy = true; $("chatSend").disabled = true;
+      showTyping();
+
+      fetch("/api/chat", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ messages: chatHistory, profile: currentProfile })
+      })
+      .then(function(r){ return r.json().then(function(j){ return { ok:r.ok, j:j }; }, function(){ return { ok:false, j:null }; }); })
+      .then(function(res){
+        hideTyping(); chatBusy = false; $("chatSend").disabled = false;
+        if(res.ok && res.j && res.j.reply){
+          chatHistory.push({ role:"assistant", content: res.j.reply });
+          addBubble("bot", formatBot(res.j.reply));
+        } else {
+          var msg = (res.j && res.j.error === "config")
+            ? "Opa, o mentor ainda não tá conectado — confere a chave no Vercel. 🔌"
+            : "Ops, deu um nó aqui 😅 Manda de novo?";
+          addBubble("err", msg);
+        }
+      })
+      .catch(function(){
+        hideTyping(); chatBusy = false; $("chatSend").disabled = false;
+        addBubble("err", "Sem conexão agora 📡 Tenta de novo.");
+      });
+    }
+
+    $("chatSend").addEventListener("click", sendMessage);
+    $("chatField").addEventListener("input", function(){ autoGrow(this); });
+    $("chatField").addEventListener("keydown", function(e){
+      if(e.key === "Enter" && !e.shiftKey){ e.preventDefault(); sendMessage(); }
+    });
+
     /* ---------- sign out ---------- */
     $("signOut").addEventListener("click", function(){
       sb.auth.signOut().then(function(){
         pending = { objective:null, level:null };
+        currentProfile = { name:"", objective:"", level:"" };
+        chatHistory = []; chatStarted = false; chatBusy = false;
+        $("chatLog").innerHTML = "";
         ["suName","suEmail","suPass","liEmail","liPass"].forEach(function(id){ $(id).value = ""; });
         show("welcome");
         showToast("Você saiu. Até logo! 👋");
