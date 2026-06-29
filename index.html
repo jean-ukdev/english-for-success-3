@@ -304,10 +304,12 @@
   .lz-text strong{font-weight:700;color:var(--navy);}
   .lz-ex{background:var(--mist-2);border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-bottom:15px;}
   .lz-ex-t{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--slate);margin-bottom:8px;}
-  .lz-pair{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-top:1px solid var(--line);}
+  .lz-pair{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid var(--line);}
   .lz-pair:first-of-type{border-top:none;}
-  .lz-pair .en{font-weight:600;color:var(--ink);}
-  .lz-pair .pt{color:var(--slate);font-size:.92rem;text-align:right;}
+  .lz-speak{flex:none;width:31px;height:31px;border-radius:9px;background:var(--mist);color:var(--navy);font-size:.92rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:transform .12s,background .15s;}
+  .lz-speak:active{transform:scale(.9);background:rgba(46,84,232,.14);}
+  .lz-pair .en{flex:1;min-width:0;font-weight:600;color:var(--ink);}
+  .lz-pair .pt{flex:none;max-width:42%;color:var(--slate);font-size:.9rem;text-align:right;}
   .lz-tip{display:flex;gap:10px;background:rgba(46,84,232,.06);border:1px solid rgba(46,84,232,.18);border-radius:14px;padding:13px 15px;margin-bottom:15px;font-size:.95rem;line-height:1.5;color:var(--ink);}
   .lz-tip .ic{flex:none;}
   .lz-tip strong{color:var(--navy);font-weight:700;}
@@ -618,6 +620,8 @@
     });
 
     document.addEventListener("click", function(e){
+      var sp = e.target.closest(".lz-speak");
+      if(sp){ speak(sp.getAttribute("data-say")); return; }
       var pt = e.target.closest(".pwtoggle");
       if(pt){
         var inp = $(pt.getAttribute("data-pw"));
@@ -841,6 +845,19 @@
     }
     function fmtInline(s){ return escapeHtml(s).replace(/\*([^*\n]+)\*/g, "<strong>$1</strong>"); }
 
+    function speak(text){
+      if(!text) return;
+      if(!("speechSynthesis" in window)){ showToast("Áudio não suportado neste navegador 😕"); return; }
+      try{
+        window.speechSynthesis.cancel();
+        var u = new SpeechSynthesisUtterance(text);
+        u.lang = "en-US"; u.rate = 0.95;
+        var vs = window.speechSynthesis.getVoices();
+        for(var i=0;i<vs.length;i++){ if(vs[i].lang && vs[i].lang.toLowerCase().indexOf("en") === 0){ u.voice = vs[i]; break; } }
+        window.speechSynthesis.speak(u);
+      }catch(e){}
+    }
+
     function renderTracks(){
       var box = $("trackList");
       if(!box) return;
@@ -924,7 +941,7 @@
           ex.className = "lz-ex";
           var html = b.title ? ('<div class="lz-ex-t">' + escapeHtml(b.title) + '</div>') : "";
           (b.items || []).forEach(function(it){
-            html += '<div class="lz-pair"><span class="en">' + escapeHtml(it.en) + '</span><span class="pt">' + escapeHtml(it.pt) + '</span></div>';
+            html += '<div class="lz-pair"><button class="lz-speak" data-say="' + escapeHtml(it.en) + '" aria-label="Ouvir">🔊</button><span class="en">' + escapeHtml(it.en) + '</span><span class="pt">' + escapeHtml(it.pt) + '</span></div>';
           });
           ex.innerHTML = html;
           body.appendChild(ex);
