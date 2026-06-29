@@ -119,9 +119,9 @@ window.EFS_CONTENT = {
       ]
     },
 
+    { id: "everyday", emoji: "💬", title: "Everyday English",  subtitle: "Inglês do dia a dia, conversas reais.",            lessons: [] },
     { id: "ielts",    emoji: "🎓", title: "IELTS",            subtitle: "Preparação no formato real da prova + simulados.", lessons: [] },
     { id: "business", emoji: "💼", title: "Business English", subtitle: "Inglês para reuniões, e-mails e negócios.",       lessons: [] },
-    { id: "career",   emoji: "🚀", title: "Career English",   subtitle: "Entrevistas, currículo e crescimento profissional.", lessons: [] },
-    { id: "everyday", emoji: "💬", title: "Everyday English",  subtitle: "Inglês do dia a dia, conversas reais.",            lessons: [] }
+    { id: "career",   emoji: "🚀", title: "Career English",   subtitle: "Entrevistas, currículo e crescimento profissional.", lessons: [] }
   ]
 };
