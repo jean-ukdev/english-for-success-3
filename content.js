@@ -27,7 +27,7 @@ window.EFS_CONTENT = {
         {
           id: "fnd-1",
           title: "Pronomes pessoais",
-          minutes: 6,
+          minutes: 7,
           blocks: [
             { type: "intro", html: "Antes de montar qualquer frase, você precisa saber <strong>quem</strong> faz a ação. É exatamente isso que os pronomes pessoais resolvem — eles são a peça nº 1 do inglês. Domine esses 7 e metade do caminho já está andada." },
             { type: "objectives", items: [
@@ -56,8 +56,13 @@ window.EFS_CONTENT = {
             ]},
             { type: "exercise", question: "Qual pronome você usa para falar de uma mesa (table)?", options: ["he", "she", "it"], answer: 2, explain: "Coisas e objetos usam *it*. He e she são só para pessoas." },
             { type: "exercise", question: "\"___ are my friends.\" (Eles são meus amigos.)", options: ["We", "They", "You"], answer: 1, explain: "*They* = eles / elas. We = nós; You = você / vocês." },
+            { type: "exercise", question: "\"My brother is here. ___ is tall.\" (Meu irmão está aqui.)", options: ["He", "She", "It"], answer: 0, explain: "Irmão = homem → *He*." },
+            { type: "exercise", question: "Qual pronome substitui \"you and I\" (você e eu)?", options: ["They", "We", "You"], answer: 1, explain: "Você e eu = nós = *We*." },
             { type: "write", prompt: "Escreva o pronome que substitui cada um: \"the table\" e \"my sisters\".", answer: "it / they", explain: "Coisa = *it*; pessoas no plural = *they*." },
+            { type: "write", prompt: "Escreva o pronome para: \"my mother\" e \"the books\".", answer: "she / they", explain: "Mãe = *she*; livros (coisas no plural) = *they*." },
             { type: "speak", text: "I, you, he, she, it, we, they", hint: "Diga os 7 pronomes pessoais em voz alta." },
+            { type: "speak", text: "he, she, it", hint: "Sons parecidos — treine com calma: he, she, it." },
+            { type: "speak", text: "we, they", hint: "Treine 'we' e 'they' (repare no som do 'th' em they)." },
             { type: "summary", items: [
               "Os 7 pronomes: <strong>I, you, he, she, it, we, they</strong>.",
               "<strong>You</strong> serve para 'você' e 'vocês'.",
