@@ -27,9 +27,15 @@ window.EFS_CONTENT = {
         {
           id: "fnd-1",
           title: "Pronomes pessoais",
-          minutes: 5,
+          minutes: 6,
           blocks: [
-            { type: "text", html: "Os <strong>pronomes pessoais</strong> (subject pronouns) substituem o nome de quem faz a ação. Eles são a base de quase toda frase em inglês." },
+            { type: "intro", html: "Antes de montar qualquer frase, você precisa saber <strong>quem</strong> faz a ação. É exatamente isso que os pronomes pessoais resolvem — eles são a peça nº 1 do inglês. Domine esses 7 e metade do caminho já está andada." },
+            { type: "objectives", items: [
+              "Reconhecer os 7 pronomes pessoais em inglês",
+              "Saber quando usar <strong>you</strong> para 'você' e 'vocês'",
+              "Usar <strong>it</strong> corretamente para coisas e animais"
+            ]},
+            { type: "text", html: "Os <strong>pronomes pessoais</strong> (subject pronouns) substituem o nome de quem faz a ação. Em vez de repetir \"João\", você diz <strong>he</strong>. Eles aparecem em quase toda frase — por isso valem ouro." },
             { type: "example", title: "Os 7 pronomes", items: [
               { en: "I", pt: "eu" },
               { en: "you", pt: "você / vocês" },
@@ -41,8 +47,23 @@ window.EFS_CONTENT = {
             ]},
             { type: "text", html: "Dois detalhes que confundem brasileiro: <strong>you</strong> serve para \"você\" E \"vocês\" (singular e plural), e <strong>it</strong> é usado para coisas, objetos e animais — algo que não tem igual no português." },
             { type: "tip", html: "<strong>I</strong> (eu) é SEMPRE maiúsculo, em qualquer lugar da frase. Nunca escreva \"i\" minúsculo." },
+            { type: "vocab", items: [
+              { en: "man", pt: "homem (→ he)" },
+              { en: "woman", pt: "mulher (→ she)" },
+              { en: "friend", pt: "amigo / amiga" },
+              { en: "dog", pt: "cachorro (→ it)" },
+              { en: "thing", pt: "coisa (→ it)" }
+            ]},
             { type: "exercise", question: "Qual pronome você usa para falar de uma mesa (table)?", options: ["he", "she", "it"], answer: 2, explain: "Coisas e objetos usam *it*. He e she são só para pessoas." },
-            { type: "exercise", question: "\"___ are my friends.\" (Eles são meus amigos.)", options: ["We", "They", "You"], answer: 1, explain: "*They* = eles / elas. We = nós; You = você / vocês." }
+            { type: "exercise", question: "\"___ are my friends.\" (Eles são meus amigos.)", options: ["We", "They", "You"], answer: 1, explain: "*They* = eles / elas. We = nós; You = você / vocês." },
+            { type: "write", prompt: "Escreva o pronome que substitui cada um: \"the table\" e \"my sisters\".", answer: "it / they", explain: "Coisa = *it*; pessoas no plural = *they*." },
+            { type: "speak", text: "I, you, he, she, it, we, they", hint: "Diga os 7 pronomes pessoais em voz alta." },
+            { type: "summary", items: [
+              "Os 7 pronomes: <strong>I, you, he, she, it, we, they</strong>.",
+              "<strong>You</strong> serve para 'você' e 'vocês'.",
+              "<strong>It</strong> é para coisas, objetos e animais.",
+              "<strong>I</strong> é sempre maiúsculo."
+            ]}
           ]
         },
         {
@@ -67,7 +88,9 @@ window.EFS_CONTENT = {
             { type: "tip", html: "Idade em inglês usa o <strong>to be</strong>, não \"have\": o certo é *I'm 30 years old* (não *I have 30 years*)." },
             { type: "exercise", question: "Complete: \"She ___ my sister.\"", options: ["am", "is", "are"], answer: 1, explain: "He / She / It usa *is*." },
             { type: "exercise", question: "Como se diz \"Nós estamos felizes\"?", options: ["We is happy", "We are happy", "We am happy"], answer: 1, explain: "We sempre usa *are*." },
-            { type: "exercise", question: "Qual a forma contraída de \"it is\"?", options: ["its", "it's", "is't"], answer: 1, explain: "*it's* = it is. Cuidado: *its* (sem apóstrofo) significa 'dele / dela' (posse)." }
+            { type: "exercise", question: "Qual a forma contraída de \"it is\"?", options: ["its", "it's", "is't"], answer: 1, explain: "*it's* = it is. Cuidado: *its* (sem apóstrofo) significa 'dele / dela' (posse)." },
+            { type: "write", prompt: "Escreva em inglês: \"Eu sou professor.\"", answer: "I am a teacher.", explain: "Eu sou = *I am*; não esqueça o artigo *a* antes da profissão." },
+            { type: "speak", text: "She is a doctor.", hint: "Ela é médica." }
           ]
         },
         {
@@ -90,7 +113,9 @@ window.EFS_CONTENT = {
             { type: "tip", html: "Regra de ouro: <strong>He, She, It → verbo + S</strong>. Pensa: \"ele / ela sempre tem o S\"." },
             { type: "exercise", question: "Complete: \"She ___ English.\" (Ela estuda inglês.)", options: ["study", "studies", "studys"], answer: 1, explain: "Com she o verbo ganha -s, e *study* vira *studies* (y depois de consoante vira -ies)." },
             { type: "exercise", question: "Qual está correto?", options: ["I works here", "He work here", "He works here"], answer: 2, explain: "He pede o -s: *He works*. 'I' não leva -s." },
-            { type: "exercise", question: "\"They ___ TV at night.\"", options: ["watch", "watches", "watchs"], answer: 0, explain: "They (eles) NÃO leva -s. Só he / she / it leva." }
+            { type: "exercise", question: "\"They ___ TV at night.\"", options: ["watch", "watches", "watchs"], answer: 0, explain: "They (eles) NÃO leva -s. Só he / she / it leva." },
+            { type: "write", prompt: "Escreva em inglês: \"Ela trabalha num banco.\"", answer: "She works in a bank.", explain: "He / She / It → verbo + s: *works*." },
+            { type: "speak", text: "I work every day.", hint: "Eu trabalho todo dia." }
           ]
         },
         {
@@ -340,6 +365,31 @@ window.EFS_CONTENT = {
             { type: "exercise", question: "\"___ is your birthday?\" (Quando...?)", options: ["What", "Where", "When"], answer: 2, explain: "Quando = *When*." },
             { type: "exercise", question: "\"___ much is it?\" (Quanto custa?)", options: ["How", "What", "Why"], answer: 0, explain: "Preço / quantidade não-contável: *How much*." }
           ]
+        },
+        {
+          id: "fnd-15",
+          title: "Object pronouns (me, him, her...)",
+          minutes: 5,
+          blocks: [
+            { type: "text", html: "Os <strong>pronomes objeto</strong> recebem a ação (vêm depois do verbo ou de preposição). São diferentes dos pronomes que fazem a ação." },
+            { type: "example", title: "Os pronomes objeto", items: [
+              { en: "me", pt: "me / mim" },
+              { en: "you", pt: "você / te" },
+              { en: "him", pt: "ele / o" },
+              { en: "her", pt: "ela / a" },
+              { en: "us", pt: "nós / nos" },
+              { en: "them", pt: "eles / os" }
+            ]},
+            { type: "example", title: "Na prática", items: [
+              { en: "Call me later.", pt: "Me ligue depois." },
+              { en: "I love her.", pt: "Eu a amo." },
+              { en: "Tell them the news.", pt: "Conte a novidade a eles." }
+            ]},
+            { type: "tip", html: "Sujeito vs objeto: *I see him* (eu vejo ele), não *I see he*. Depois do verbo, use o objeto." },
+            { type: "exercise", question: "\"I know ___.\" (eu conheço ele)", options: ["he", "him", "his"], answer: 1, explain: "Objeto (recebe a ação) = *him*." },
+            { type: "write", prompt: "Escreva em inglês: \"Me ligue amanhã.\"", answer: "Call me tomorrow.", explain: "Imperativo + pronome objeto *me*." },
+            { type: "speak", text: "I love you.", hint: "Eu te amo." }
+          ]
         }
       ]
     },
@@ -366,7 +416,9 @@ window.EFS_CONTENT = {
             ]},
             { type: "tip", html: "*Good night* não é para chegar — é para se despedir ou ir dormir. Ao chegar à noite, use *Good evening*." },
             { type: "exercise", question: "Como responder a \"Nice to meet you\"?", options: ["You're welcome", "Nice to meet you too", "Good night"], answer: 1, explain: "Retribui: *Nice to meet you too*." },
-            { type: "exercise", question: "Qual usar ao CHEGAR de manhã?", options: ["Good night", "Good morning", "Goodbye"], answer: 1, explain: "De manhã: *Good morning*." }
+            { type: "exercise", question: "Qual usar ao CHEGAR de manhã?", options: ["Good night", "Good morning", "Goodbye"], answer: 1, explain: "De manhã: *Good morning*." },
+            { type: "write", prompt: "Escreva em inglês: \"Prazer em conhecer você.\"", answer: "Nice to meet you.", explain: "Expressão fixa ao se apresentar." },
+            { type: "speak", text: "Hi! My name is Ana. Nice to meet you.", hint: "Oi! Meu nome é Ana. Prazer em conhecer." }
           ]
         },
         {
@@ -406,7 +458,27 @@ window.EFS_CONTENT = {
             { type: "text", html: "<strong>I'd like</strong> (I would like) é a forma educada de pedir — soa bem melhor que \"I want\"." },
             { type: "tip", html: "*I'd like a coffee* soa educado; *I want a coffee* soa rude num restaurante. Use *I'd like* ou *Could I have...?*" },
             { type: "exercise", question: "Forma educada de pedir?", options: ["Give me a coffee", "I'd like a coffee", "I want coffee now"], answer: 1, explain: "*I'd like...* é o jeito educado." },
-            { type: "exercise", question: "Como pedir a conta?", options: ["The bill, please", "The menu, please", "A table, please"], answer: 0, explain: "Conta = *the bill*." }
+            { type: "exercise", question: "Como pedir a conta?", options: ["The bill, please", "The menu, please", "A table, please"], answer: 0, explain: "Conta = *the bill*." },
+            { type: "write", prompt: "Peça um café de forma educada (use \"I'd like\").", answer: "I'd like a coffee, please.", explain: "*I'd like* é educado; *please* reforça a cortesia." },
+            { type: "speak", text: "Can I see the menu, please?", hint: "Posso ver o cardápio, por favor?" }
+          ]
+        },
+        {
+          id: "evd-4",
+          title: "Compras (Shopping)",
+          minutes: 5,
+          blocks: [
+            { type: "text", html: "Comprar em inglês: perguntar preço, tamanho e pagar. As frases essenciais." },
+            { type: "example", title: "Na loja", items: [
+              { en: "How much is it?", pt: "Quanto custa?" },
+              { en: "Do you have a smaller size?", pt: "Tem um tamanho menor?" },
+              { en: "Can I pay by card?", pt: "Posso pagar no cartão?" },
+              { en: "I'm just looking, thanks.", pt: "Só estou olhando, obrigado." }
+            ]},
+            { type: "tip", html: "*How much?* pergunta preço; *How many?* pergunta quantidade. Preço → *How much is it?*" },
+            { type: "exercise", question: "Como perguntar o preço?", options: ["How many is it?", "How much is it?", "How old is it?"], answer: 1, explain: "Preço = *How much is it?*" },
+            { type: "write", prompt: "Escreva em inglês: \"Posso pagar no cartão?\"", answer: "Can I pay by card?", explain: "*pay by card* = pagar no cartão." },
+            { type: "speak", text: "How much is this?", hint: "Quanto custa isto?" }
           ]
         }
       ]
@@ -430,7 +502,9 @@ window.EFS_CONTENT = {
             { type: "tip", html: "Descubra a banda exata que o seu objetivo (universidade ou visto) exige e mire nela. Aqui no app, a gente treina cada parte no formato real — e o Delagassa corrige sua redação no chat." },
             { type: "exercise", question: "Quantas questões tem a parte de Reading?", options: ["20", "40", "60"], answer: 1, explain: "Reading tem *40 questões* em 60 minutos, divididas em 3 textos." },
             { type: "exercise", question: "A nota (band score) do IELTS vai de...?", options: ["0 a 10", "0 a 9", "1 a 5"], answer: 1, explain: "A banda vai de *0 a 9*, com meios pontos." },
-            { type: "exercise", question: "Qual versão é para entrar na universidade?", options: ["General Training", "Academic", "Business"], answer: 1, explain: "A versão *Academic* é a exigida para estudo universitário." }
+            { type: "exercise", question: "Qual versão é para entrar na universidade?", options: ["General Training", "Academic", "Business"], answer: 1, explain: "A versão *Academic* é a exigida para estudo universitário." },
+            { type: "write", prompt: "IELTS Writing começa aqui. Escreva 1 frase em inglês sobre por que você quer fazer o IELTS.", answer: "(Exemplo) I want to take the IELTS to study at a university abroad.", explain: "Não há resposta única — o importante é produzir. No chat, o Delagassa corrige a sua frase." },
+            { type: "speak", text: "I would like to study abroad.", hint: "Eu gostaria de estudar no exterior." }
           ]
         },
         {
